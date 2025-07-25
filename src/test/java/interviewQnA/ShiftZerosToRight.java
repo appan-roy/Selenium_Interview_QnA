@@ -13,7 +13,6 @@ public class ShiftZerosToRight {
 				newArr[counter] = arr[i];
 				counter++;
 			}
-
 		}
 		
 		for (int i : newArr) {
