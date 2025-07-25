@@ -29,7 +29,7 @@ public class DuplicateCharInString {
 
         // Method 3
         String str2 = "India is my country";
-        char[] charArray = str2.toCharArray();
+        char[] charArray = str2.replaceAll("\\s", "").toCharArray();
 
         Map<Character, Integer> baseMap = new HashMap<>();
 
