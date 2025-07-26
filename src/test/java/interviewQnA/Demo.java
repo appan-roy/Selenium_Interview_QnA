@@ -1,10 +1,6 @@
 package interviewQnA;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -70,34 +66,8 @@ public class Demo {
 
     public static void main(String[] args) throws IOException {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("xpath")));
 
-        driver.get("https://www.google.co.in/");
-
-        List<WebElement> links = driver.findElements(By.tagName("a"));
-
-        for(WebElement link: links){
-            verifyUrl(link.getAttribute("href"));
-        }
-
-    }
-
-    private static void verifyUrl(String Url) throws IOException {
-        URL url = new URL(Url);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-        httpURLConnection.setConnectTimeout(1000);
-        httpURLConnection.connect();
-
-        if(httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK)
-            System.out.println(Url + " - " + httpURLConnection.getResponseCode() + " - " + HttpURLConnection.HTTP_OK);
-        else if(httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND)
-            System.out.println(Url + " - " + httpURLConnection.getResponseCode() + " - " + HttpURLConnection.HTTP_NOT_FOUND);
     }
 
 }
